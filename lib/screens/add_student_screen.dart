@@ -41,7 +41,14 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
     // (listeners, animaciones, llamadas a API, etc.)
   }
 
-  
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _idController.dispose();
+    _emailController.dispose();
+    _cycleController.dispose();
+    super.dispose();
+  }
   // 🐛 BUG #3
   //@override
   //void dispose() {}

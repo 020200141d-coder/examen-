@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late Future<List<Student>> _futureStudents;
   final StudentApiService _apiService = StudentApiService();
 
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>(); // 🐛 BUG #2 este hacia que entre a build y se ejecutara varias veces creando clves globales 
   @override
   void initState() {
     super.initState();
@@ -42,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     
-    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>(); // 🐛 BUG #2
+    
 
     return Scaffold(
       key: scaffoldKey,
